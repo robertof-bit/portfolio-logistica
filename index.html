@@ -3,200 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Logística - Carlos Roberto</title>
-
+    <title>Portfólio de Logística e Dados | Carlos Roberto</title>
     <style>
         * {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: #e5e7eb;
+            background: #0b1120;
+            color: #e2e8f0;
         }
 
-        header {
-            background-color: #1e293b;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid #334155;
+        a {
+            color: #38bdf8;
+            text-decoration: none;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .nav {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav .logo {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #f8fafc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .hero {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 70px 0 40px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin: 0 0 18px;
+            color: #f8fafc;
+        }
+
+        .hero-text h1 span {
             color: #38bdf8;
         }
 
-        header p {
-            margin-top: 10px;
+        .hero-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            background: #111827;
+        }
+
+        .btn-secondary:hover {
+            background: #1e293b;
+            text-decoration: none;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .hero-card h3 {
+            margin-top: 0;
+            color: #38bdf8;
+        }
+
+        .hero-card ul {
+            margin: 0;
+            padding-left: 18px;
+            line-height: 1.9;
             color: #cbd5e1;
         }
 
-        .container {
+        .section {
             width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 0;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 28px 0;
         }
 
-        .projeto {
-            background-color: #1e293b;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 14px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        .section-title {
+            font-size: 2rem;
+            color: #f8fafc;
+            margin-bottom: 10px;
         }
 
-        h2 {
+        .section-subtitle {
+            color: #94a3b8;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #38bdf8;
+            font-size: 1.1rem;
+        }
+
+        .card p, .card li {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .projects {
+            display: grid;
+            gap: 28px;
+        }
+
+        .project {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            font-size: 1.55rem;
             color: #38bdf8;
         }
 
-        p {
-            line-height: 1.7;
+        .project p {
+            line-height: 1.8;
+            color: #dbe4ee;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: #93c5fd;
+            font-size: 0.9rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 18px;
         }
 
         iframe {
             width: 100%;
             height: 600px;
             border: 0;
-            border-radius: 10px;
-            margin: 20px 0;
-            background: white;
-        }
-
-        ul {
-            padding-left: 20px;
-            line-height: 1.8;
-        }
-
-        .sobre {
-            background-color: #1e293b;
-            padding: 25px;
             border-radius: 14px;
+            background: #fff;
+        }
+
+        .list-box {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .list-box h4 {
+            margin-top: 0;
+            color: #f8fafc;
+        }
+
+        .list-box ul {
+            margin: 0;
+            padding-left: 18px;
+            line-height: 1.9;
+            color: #cbd5e1;
+        }
+
+        .about-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
         }
 
         footer {
+            margin-top: 40px;
+            padding: 26px 20px;
             text-align: center;
-            padding: 20px;
-            background-color: #1e293b;
-            margin-top: 30px;
             color: #94a3b8;
+            border-top: 1px solid #1e293b;
+            background: #0f172a;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .project-grid,
+            .cards,
+            .about-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
         }
 
         @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.9rem;
+            }
+
             iframe {
                 height: 420px;
             }
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Portfólio de Logística e Dados</h1>
-    <p>Carlos Roberto</p>
-</header>
-
-<div class="container">
-
-    <!-- PROJETO 1 -->
-    <div class="projeto">
-        <h2>📦 Projeto 1 - Análise de Indicadores Logísticos</h2>
-
-        <p>
-            Dashboard interativo desenvolvido em Power BI para controle de estoque,
-            com foco em giro, cobertura e identificação de ruptura.
-        </p>
-
-        <iframe 
-            title="Projeto-Gestao-Estoque"
-            src="https://app.powerbi.com/view?r=eyJrIjoiNjE2NTBkZmMtZmNlZC00ZTlmLWJhYWItNTUxNDk2ZjAzMjcyIiwidCI6ImUwZjI1MGMzLTlkODgtNDI0My1iNDZjLTU0MzQxNjBiMGFiMiJ9"
-            allowFullScreen="true">
-        </iframe>
-
-        <p><b>Principais análises:</b></p>
-        <ul>
-            <li>Giro de estoque por produto</li>
-            <li>Cobertura atual de estoque</li>
-            <li>Identificação de itens em ruptura</li>
-            <li>Produtos com excesso ou baixa cobertura</li>
-        </ul>
-
-        <p><b>Insights:</b></p>
-        <ul>
-            <li>Produtos com baixa cobertura representam risco operacional</li>
-            <li>Itens com excesso impactam capital parado</li>
-            <li>Possibilidade de otimização de compras</li>
-        </ul>
+    <div class="topbar">
+        <div class="nav">
+            <div class="logo">Carlos Roberto | Portfólio</div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#competencias">Competências</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
     </div>
 
-    <!-- PROJETO 2 -->
-    <div class="projeto">
-        <h2>🚛 Projeto 2 - Análise de Transporte Logístico</h2>
+    <section class="hero" id="sobre">
+        <div class="hero-text">
+            <h1>Portfólio de <span>Logística, Planejamento e Análise de Dados</span></h1>
+            <p>
+                Profissional com experiência em logística, controle operacional e análise de indicadores,
+                com foco em estoque, transporte, eficiência operacional e suporte à tomada de decisão.
+                Este portfólio reúne projetos práticos desenvolvidos com Power BI e Python, demonstrando
+                visão analítica aplicada a desafios reais da operação logística.
+            </p>
+            <div class="hero-buttons">
+                <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+                <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
 
-        <p>
-            Dashboard voltado para análise de custos logísticos e eficiência de transporte,
-            apoiando decisões estratégicas na operação.
+        <div class="hero-card">
+            <h3>Destaques do perfil</h3>
+            <ul>
+                <li>Análise de indicadores logísticos</li>
+                <li>Controle de estoque e cobertura</li>
+                <li>Avaliação de custos e transporte</li>
+                <li>Automação e análise com Python</li>
+                <li>Dashboards gerenciais em Power BI</li>
+                <li>Apoio à tomada de decisão operacional</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" id="competencias">
+        <h2 class="section-title">Competências em destaque</h2>
+        <p class="section-subtitle">
+            Projetos construídos com foco em leitura de indicadores, organização analítica e geração de insights
+            para áreas de logística, planejamento e performance operacional.
         </p>
 
-        <iframe 
-            title="Projeto-Transporte-Logistico"
-            src="https://app.powerbi.com/view?r=eyJrIjoiZDJlOTRjNWMtZjQ4Yy00NjIxLThkNDMtZTU4MTAzN2M3NmIyIiwidCI6ImUwZjI1MGMzLTlkODgtNDI0My1iNDZjLTU0MzQxNjBiMGFiMiJ9"
-            allowFullScreen="true">
-        </iframe>
+        <div class="cards">
+            <div class="card">
+                <h3>📦 Estoque</h3>
+                <p>Monitoramento de cobertura, giro, ruptura, excesso e priorização de itens críticos.</p>
+            </div>
 
-        <p><b>Principais análises:</b></p>
-        <ul>
-            <li>Custo por operação logística</li>
-            <li>Eficiência das transportadoras</li>
-            <li>Identificação de gargalos</li>
-            <li>Monitoramento de KPIs de transporte</li>
-        </ul>
+            <div class="card">
+                <h3>🚛 Transporte</h3>
+                <p>Análise de custo logístico, eficiência operacional, gargalos e desempenho de operações.</p>
+            </div>
 
-        <p><b>Insights:</b></p>
-        <ul>
-            <li>Operações com maior custo podem ser otimizadas</li>
-            <li>Diferença de performance entre transportadoras</li>
-            <li>Oportunidades de redução de custos logísticos</li>
-        </ul>
-    </div>
+            <div class="card">
+                <h3>📊 Dados</h3>
+                <p>Criação de dashboards, automações e relatórios voltados para suporte à decisão.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- PROJETO 3 -->
-    <div class="projeto">
-        <h2>🧠 Projeto 3 - Automação e Análise de Dados</h2>
-
-        <p>
-            Projeto de automação em Python para análise de estoque e geração de alertas,
-            auxiliando na tomada de decisão operacional.
+    <section class="section" id="projetos">
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-subtitle">
+            Projetos desenvolvidos para demonstrar capacidade analítica, interpretação de indicadores
+            e aplicação prática de dados em logística.
         </p>
 
-        <ul>
-            <li>Identificação automática de ruptura</li>
-            <li>Detecção de excesso de estoque</li>
-            <li>Classificação de prioridades</li>
-            <li>Geração de relatórios analíticos</li>
-        </ul>
-    </div>
+        <div class="projects">
 
-    <!-- SOBRE -->
-    <div class="sobre">
-        <h2>👤 Sobre mim</h2>
-        <p>
-            Profissional com experiência em logística, controle operacional e análise de dados.
-            Desenvolvo projetos voltados para estoque, transporte e automação, com foco em eficiência
-            e suporte à tomada de decisão.
+            <article class="project">
+                <span class="badge">Power BI | Estoque | Indicadores</span>
+                <h3>📦 Projeto 1 — Gestão de Estoque e Indicadores Logísticos</h3>
+                <p>
+                    Dashboard interativo desenvolvido em Power BI para acompanhamento de indicadores de estoque,
+                    com foco em giro, cobertura, ruptura e identificação de oportunidades de melhoria operacional.
+                </p>
+
+                <iframe
+                    title="Projeto-GestaoEstoque"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiNjE2NTBkZmMtZmNlZC00ZTlmLWJhYWItNTUxNDk2ZjAzMjcyIiwidCI6ImUwZjI1MGMzLTlkODgtNDI0My1iNDZjLTU0MzQxNjBiMGFiMiJ9"
+                    allowFullScreen="true">
+                </iframe>
+
+                <div class="project-grid">
+                    <div class="list-box">
+                        <h4>Principais análises</h4>
+                        <ul>
+                            <li>Giro de estoque por produto</li>
+                            <li>Cobertura atual dos itens</li>
+                            <li>Identificação de ruptura</li>
+                            <li>Produtos com excesso ou baixa cobertura</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-box">
+                        <h4>Valor analítico</h4>
+                        <ul>
+                            <li>Identificação de risco operacional</li>
+                            <li>Redução de capital parado em estoque</li>
+                            <li>Priorização de reposição</li>
+                            <li>Base para revisão de compras</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project">
+                <span class="badge">Power BI | Transporte | Custos</span>
+                <h3>🚛 Projeto 2 — Análise de Transporte Logístico</h3>
+                <p>
+                    Dashboard desenvolvido para monitoramento de custos logísticos, eficiência operacional
+                    e desempenho de transporte, apoiando decisões estratégicas na operação.
+                </p>
+
+                <iframe
+                    title="Projeto-Logistica"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiZDJlOTRjNWMtZjQ4Yy00NjIxLThkNDMtZTU4MTAzN2M3NmIyIiwidCI6ImUwZjI1MGMzLTlkODgtNDI0My1iNDZjLTU0MzQxNjBiMGFiMiJ9"
+                    allowFullScreen="true">
+                </iframe>
+
+                <div class="project-grid">
+                    <div class="list-box">
+                        <h4>Principais análises</h4>
+                        <ul>
+                            <li>Custo por operação logística</li>
+                            <li>Eficiência das transportadoras</li>
+                            <li>Identificação de gargalos</li>
+                            <li>Monitoramento de KPIs de transporte</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-box">
+                        <h4>Valor analítico</h4>
+                        <ul>
+                            <li>Leitura de operações com maior custo</li>
+                            <li>Comparação de performance operacional</li>
+                            <li>Visão de oportunidades de otimização</li>
+                            <li>Suporte à redução de custos logísticos</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project">
+                <span class="badge">Python | Automação | Logística</span>
+                <h3>🧠 Projeto 3 — Automação e Análise de Dados Aplicada à Logística</h3>
+                <p>
+                    Projeto desenvolvido em Python para análise automatizada de estoque e geração de alertas,
+                    com foco em apoio operacional e identificação rápida de itens críticos.
+                </p>
+
+                <div class="project-grid">
+                    <div class="list-box">
+                        <h4>Funcionalidades</h4>
+                        <ul>
+                            <li>Identificação automática de ruptura</li>
+                            <li>Detecção de excesso de estoque</li>
+                            <li>Classificação de prioridades</li>
+                            <li>Geração de relatórios analíticos</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-box">
+                        <h4>Diferenciais</h4>
+                        <ul>
+                            <li>Uso de Python aplicado à logística</li>
+                            <li>Automação de análises operacionais</li>
+                            <li>Agilidade na leitura de dados</li>
+                            <li>Suporte à tomada de decisão</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="section" id="contato">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle">
+            Aberto a oportunidades nas áreas de logística, planejamento, indicadores e análise de dados.
         </p>
-    </div>
 
-</div>
+        <div class="about-contact">
+            <div class="card">
+                <h3>👤 Sobre mim</h3>
+                <p>
+                    Atuo com foco em logística, controle operacional, indicadores e suporte analítico.
+                    Tenho interesse em oportunidades que envolvam melhoria de processos, análise de performance
+                    e estruturação de informações para tomada de decisão.
+                </p>
+            </div>
 
-<footer>
-    © 2026 - Carlos Roberto | Portfólio de Logística e Dados
-</footer>
+            <div class="card">
+                <h3>📩 Informações</h3>
+                <p><b>Nome:</b> Carlos Roberto</p>
+                <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/" target="_blank">Adicionar link do LinkedIn</a></p>
+                <p><b>E-mail:</b> adicionar seu e-mail aqui</p>
+                <p><b>Objetivo:</b> Logística, Planejamento, BI e Análise de Dados</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 - Carlos Roberto | Portfólio de Logística, Planejamento e Dados
+    </footer>
 
 </body>
 </html>
