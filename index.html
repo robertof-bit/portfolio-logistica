@@ -19,7 +19,6 @@
       --title: #f8fbff;
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.30);
       --radius: 22px;
-      --radius-sm: 16px;
       --max: 1180px;
     }
 
@@ -400,7 +399,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
 
@@ -469,11 +468,16 @@
       font-size: 0.95rem;
     }
 
+    @media (max-width: 1200px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
       .about-grid,
       .project-panels,
-      .skills-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -514,6 +518,10 @@
       iframe {
         height: 420px;
       }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -543,11 +551,12 @@
 
         <p>
           Dashboards desenvolvidos em Power BI e projetos analíticos com foco em gestão de estoque,
-          planejamento operacional, custos logísticos, transporte e leitura de performance.
+          planejamento operacional, custos logísticos e transporte, com base em práticas aplicadas
+          em ambientes ERP como SAP S/4HANA (EWM e MM).
         </p>
 
         <p class="hero-mini">
-          Logística • Planejamento • Indicadores • Power BI • Python • Excel
+          Logística • Planejamento • Indicadores • SAP S/4HANA • EWM • MM • Power BI • Python
         </p>
 
         <div class="hero-actions">
@@ -574,10 +583,10 @@
         </div>
 
         <div class="impact-card">
-          <h3>Abordagem prática</h3>
+          <h3>Visão de sistema e processo</h3>
           <p>
-            Organização de dados, definição de indicadores, visualização clara
-            e aplicação analítica em contextos operacionais.
+            Conhecimento aplicado a rotinas logísticas conectadas a ERP, com referência
+            a SAP S/4HANA, EWM e MM em contextos de estoque, materiais e armazenagem.
           </p>
         </div>
       </div>
@@ -729,14 +738,17 @@
       <div class="section-box about-grid">
         <div class="about-text">
           <p>
-            Projetos desenvolvidos para demonstrar estruturação de dados, construção de indicadores
-            e visualização de performance operacional.
+            Projetos desenvolvidos para demonstrar estruturação de dados, construção de indicadores,
+            visualização de performance operacional e leitura analítica aplicada a contextos logísticos.
           </p>
 
           <div class="tag-list">
             <span class="tag">Power BI</span>
             <span class="tag">Python</span>
             <span class="tag">Excel</span>
+            <span class="tag">SAP S/4HANA</span>
+            <span class="tag">EWM</span>
+            <span class="tag">MM</span>
             <span class="tag">Indicadores</span>
             <span class="tag">Estoque</span>
             <span class="tag">Transporte</span>
@@ -747,12 +759,12 @@
         <div class="about-side">
           <div class="info-card">
             <h4>Foco</h4>
-            <p>Logística, planejamento e análise de performance.</p>
+            <p>Logística, planejamento, ERP e análise de performance.</p>
           </div>
 
           <div class="info-card">
             <h4>Abordagem</h4>
-            <p>Leitura de indicadores, visualização clara e apoio à decisão.</p>
+            <p>Leitura de indicadores, visualização clara e apoio à decisão operacional e gerencial.</p>
           </div>
         </div>
       </div>
@@ -789,6 +801,11 @@
           <h3>📊 Power BI e Python</h3>
           <p>Construção de dashboards, automações e visualizações voltadas à leitura gerencial.</p>
         </div>
+
+        <div class="skill-card">
+          <h3>🧩 SAP S/4HANA (EWM e MM)</h3>
+          <p>Conhecimento em processos logísticos dentro do SAP, incluindo estoque, materiais, movimentações e operações de armazenagem.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -807,7 +824,7 @@
           <h3>Apresentação</h3>
           <p>
             Este portfólio foi desenvolvido para reunir dashboards, projetos e aplicações práticas
-            voltadas à logística, planejamento, indicadores e análise de dados.
+            voltadas à logística, planejamento, indicadores, ERP e análise de dados.
           </p>
           <p>
             Para informações adicionais, histórico profissional e currículo, os links estão disponíveis ao lado.
